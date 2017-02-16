@@ -8,9 +8,10 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+npm-debug.log
 
 node_modules
-.sass-cache
 bower_components
-#config.sftp.json
-#app
+.sass-cache
+config.sftp.json
+app
