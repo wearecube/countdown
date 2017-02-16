@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-size: $base-font;
+  font-family: 'Open Sans', sans-serif;
+  color: #444;
+  background: linear-gradient(180deg, #BAB8AA 50%, #A5A292 50%);
+}

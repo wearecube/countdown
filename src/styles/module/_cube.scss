@@ -1,0 +1,35 @@
+.cube {
+  width: 400px;
+  height: auto;
+  box-sizing: border-box;
+  background-color: #9EAC25;
+  padding: 1rem;
+  margin: 0 auto;
+  position: relative;
+  margin: 0 auto;
+  align-self: center;
+  transform-style: preserve-3d;
+  @include box-shadow(0 20px 20px -10px rgba(109, 109, 22, .15));
+  @include susy-breakpoint($break-400px) {
+    height: 400px;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    border: 50px solid rgba(0,0,0,0);
+    border-bottom: 60px solid #6D6D16;
+    width: 300px;
+    left: 0;
+    top: -110px;
+  }
+}
+.wac-logo {
+  width: 150px;
+  height: auto;
+  bottom: 0;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  padding-bottom: 15px;
+}
