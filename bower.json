@@ -1,0 +1,31 @@
+{
+  "name": "WAC Countdown",
+  "version": "1.0.0",
+  "authors": [
+    "Joshua Schaer <schaer@puzzle.ch>"
+  ],
+  "description": "WAC Countdown is made with the help of frontendcubie",
+  "homepage": "http://www.wearecube.ch/celebrate",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wearecube/countdown.git"
+  },
+  "license": "Apache-2.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "compass-sass-mixins": "*"
+  },
+  "dependencies": {
+    "zepto": "~1.1.6",
+    "normalize-scss": "~3.0.3",
+    "susy": "~2.2.2",
+    "breakpoint-sass": "~2.5.0",
+    "modernizr": "~2.8.3"
+  }
+}
