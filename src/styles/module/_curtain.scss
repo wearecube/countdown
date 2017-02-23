@@ -6,12 +6,15 @@
   z-index: 101;
 
   h1 {
-    padding: 0 10px;
+    padding: 10px 10px;
     word-break: break-word;
-    font-size: 60px;
+    font-size: 50px;
+    margin: 0;
     @include susy-breakpoint($break-400px) {
       padding: 0;
       align-self: center;
+      font-size: 60px;
+      //margin: normal;
     }
   }
 
@@ -97,4 +100,8 @@
   width: 100%;
   color: #8A887C;
   z-index: 999;
+  margin-bottom: 60px;
+  @include susy-breakpoint($break-400px) {
+    margin-bottom: 0;
+  }
 }
