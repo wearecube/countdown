@@ -14,7 +14,6 @@
       padding: 0;
       align-self: center;
       font-size: 60px;
-      //margin: normal;
     }
   }
 
@@ -58,7 +57,6 @@
     display: flex;
     align-items: center;
     color: #fff;
-    //background-color: #DCDBD2;
     background: linear-gradient(to right, /* or 90deg */
       #BAB8AA 50%, #A5A292 0);
       background-size: 30px 100%;
@@ -100,7 +98,6 @@
   width: 100%;
   color: #8A887C;
   z-index: 999;
-  margin-bottom: 60px;
   @include susy-breakpoint($break-400px) {
     margin-bottom: 0;
   }
