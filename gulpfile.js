@@ -203,8 +203,7 @@ gulp.task('serve', ['build'], function () {
   gulp.watch(src + '**/*.{html,json,svg}', ['template-watch']);
   gulp.watch(src + 'scripts/*.js', ['scripts']);
   gulp.watch(src + 'assets/images/*', ['images']);
-  gulp.watch(src + 'styles/{,*/}*.{scss,sass}', ['styles', 'doc']);
-  gulp.watch(src + 'styles/styleguide.md', ['doc']);
+  gulp.watch(src + 'styles/{,*/}*.{scss,sass}', ['styles']);
 });
 
 // Gulp Default Task
