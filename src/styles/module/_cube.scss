@@ -12,6 +12,7 @@
   transform-style: preserve-3d;
   margin-bottom: 1rem;
   margin-top: 70px;
+  align-self: center;
   @include box-shadow(0 20px 20px -10px rgba(109, 109, 22, .15));
   @include susy-breakpoint($break-400px) {
     height: 400px;
