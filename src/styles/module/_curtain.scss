@@ -6,11 +6,12 @@
   z-index: 101;
 
   h1 {
-    color: #4e4d50;
     padding: 0 10px;
     word-break: break-word;
+    font-size: 60px;
     @include susy-breakpoint($break-400px) {
       padding: 0;
+      align-self: center;
     }
   }
 
@@ -73,6 +74,18 @@
     height: 100%;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
   }
 
+}
+
+.explanation-heading {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  color: #8A887C;
+  z-index: 999;
 }
