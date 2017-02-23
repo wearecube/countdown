@@ -116,7 +116,7 @@
         fig_2_value = $el_2.find('.top').html();
 
         if(value >= 10) {
-          
+
           // Animate only if the figure has changed
           if(fig_1_value !== val_1) this.animateFigure($el_1, val_1);
           if(fig_2_value !== val_2) this.animateFigure($el_2, val_2);
