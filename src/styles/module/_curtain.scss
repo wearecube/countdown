@@ -35,11 +35,17 @@
         // Slide the first panel
         &~div.curtain__panel--left {
           transform: translateX(0);
+          background: linear-gradient(to right, /* or 90deg */
+            #BAB8AA 50%, #A5A292 0);
+            background-size: 30px 100%;
         }
 
         // Slide the second panel
         &~div.curtain__panel--right {
           transform: translateX(0);
+          background: linear-gradient(to right, /* or 90deg */
+            #BAB8AA 50%, #A5A292 0);
+            background-size: 30px 100%;
         }
       }
     }
@@ -49,7 +55,10 @@
     display: flex;
     align-items: center;
     color: #fff;
-    background-color: #DCDBD2;
+    //background-color: #DCDBD2;
+    background: linear-gradient(to right, /* or 90deg */
+      #BAB8AA 50%, #A5A292 0);
+      background-size: 30px 100%;
     float: left;
     position: relative;
     width: 50%;
