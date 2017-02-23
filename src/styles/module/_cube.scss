@@ -1,5 +1,5 @@
 .cube {
-  width: 400px;
+  width: 300px;
   height: auto;
   box-sizing: border-box;
   background-color: #9EAC25;
@@ -7,20 +7,26 @@
   margin: 0 auto;
   position: relative;
   margin: 0 auto;
-  align-self: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   transform-style: preserve-3d;
   @include box-shadow(0 20px 20px -10px rgba(109, 109, 22, .15));
   @include susy-breakpoint($break-400px) {
     height: 400px;
+    width: 400px;
   }
   &::before {
     content: '';
     position: absolute;
     border: 50px solid rgba(0,0,0,0);
     border-bottom: 60px solid #6D6D16;
-    width: 300px;
+    width: 200px;
     left: 0;
     top: -110px;
+    @include susy-breakpoint($break-400px) {
+      width: 300px;
+    }
   }
 }
 .wac-logo {
