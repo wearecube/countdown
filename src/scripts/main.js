@@ -26,7 +26,7 @@
         };
 
         // Init target date to count down to
-        this.target = moment('2017-03-01');
+        this.target = moment('2017-03-01T09:00:00+01:00');
 
         // Animate countdown to the end
         this.count();
