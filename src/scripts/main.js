@@ -2,6 +2,7 @@
 
 (function ($, window, document, undefined) {
   document.body.addEventListener('click', openBox);
+  document.body.addEventListener('touchstart', openBox);
 
   var fireCannon1 = createConfettiCannon('confetti-canvas-1', 100);
   var fireCannon2 = createConfettiCannon('confetti-canvas-2', 250);
