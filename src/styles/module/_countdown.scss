@@ -26,7 +26,7 @@ $lato: 'Lato';
     display: flex;
     flex-direction: column;
     @include susy-breakpoint($break-400px) {
-      margin: 30px;
+      margin: 0 20px 20px;
     }
   }
 
@@ -44,8 +44,8 @@ $lato: 'Lato';
   .figure {
     position: relative;
     float: left;
-    height: 60px;
-    width: 50px;
+    height: 40px;
+    width: 30px;
     margin-right: 10px;
     background-color: #fff;
     border: 1px solid #ccc;
@@ -61,7 +61,7 @@ $lato: 'Lato';
       left: 0;
       right: 0;
       margin: auto;
-      font: normal 2.5em/63px $lato;
+      font: normal 1.5em/40px $lato;
       font-weight: 700;
       color: #4E4D50;
     }

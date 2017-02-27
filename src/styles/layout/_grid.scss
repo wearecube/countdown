@@ -24,6 +24,7 @@ This is not a grid system. Show what it is about on <a href="http://susy.oddbird
 }
 .main-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
