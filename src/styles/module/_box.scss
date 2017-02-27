@@ -51,7 +51,6 @@
   position: absolute;
   transform: rotateX(90deg) translateZ(150px);
   transform-style: preserve-3d;
-  background-color: darken($color-primary, 10%);
 }
 
 .side-2 {
@@ -65,6 +64,7 @@
 
 .side-3 {
   transform: rotateY(90deg) translateZ(150px);
+  background-color: darken($color-primary, 5%);
 }
 
 .side-4 {
@@ -73,6 +73,7 @@
 
 .side-5 {
   transform: rotateY(180deg) translateZ(150px);
+  background-color: $color-primary;
 }
 
 .side-6 {
