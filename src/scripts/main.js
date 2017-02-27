@@ -8,6 +8,7 @@
 
   function openBox() {
     document.getElementsByClassName('box')[0].classList.add('open');
+    document.getElementsByTagName('h1')[0].classList.add('reveal');
 
     setTimeout(fireCannon1, 650)
     setTimeout(fireCannon2, 650)
