@@ -1,7 +1,6 @@
 
 
 (function ($, window, document, undefined) {
-  document.body.addEventListener('mouseenter', openBox);
   document.body.addEventListener('click', openBox);
 
   var fireCannon1 = createConfettiCannon('confetti-canvas-1', 100);
