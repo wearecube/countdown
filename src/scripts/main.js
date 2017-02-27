@@ -1,137 +1,159 @@
+
+
 (function ($, window, document, undefined) {
+  document.body.addEventListener('mouseenter', openBox);
+  document.body.addEventListener('click', openBox);
 
-  'use strict';
+  var fireCannon1 = createConfettiCannon('confetti-canvas-1', 100);
+  var fireCannon2 = createConfettiCannon('confetti-canvas-2', 250);
 
-  $(function () {
-    // Add your scripts here
-    // Create Countdown
-    var Countdown = {
+  function openBox() {
+    document.getElementsByClassName('box')[0].classList.add('open');
 
-      // Backbone-like structure
-      $el: $('.countdown'),
+    setTimeout(fireCannon1, 650)
+    setTimeout(fireCannon2, 650)
+  }
 
-      // Params
-      countdown_interval: null,
-      total_seconds     : 0,
+  function createConfettiCannon(id, particles) {
+    var canvas = document.getElementById(id);
+    var context = canvas.getContext("2d");
+    var width = canvas.width = window.innerWidth;
+    var height = canvas.height = window.innerHeight;
 
-      // Initialize the countdown
-      init: function() {
 
-        // DOM
-        this.$ = {
-          days  : this.$el.find('.bloc-time.days .figure'),
-          hours  : this.$el.find('.bloc-time.hours .figure'),
-          minutes: this.$el.find('.bloc-time.min .figure'),
-          seconds: this.$el.find('.bloc-time.sec .figure')
-        };
+    // création d'un tableau
+    var particle = [];
+    var particleCount = 0;
+    var gravity = 0.3;
+    var colors = [
+      '#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5',
+      '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4CAF50',
+      '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107', '#FF9800',
+      '#FF5722', '#795548'
+    ];
 
-        // Init target date to count down to
-        this.target = moment('2017-03-01T09:00:00+01:00');
 
-        // Animate countdown to the end
-        this.count();
-      },
 
-      count: function() {
+    for( var i = 0; i < particles; i++){
 
-        var that    = this,
-        $day_1 = this.$.days.eq(0),
-        $day_2 = this.$.days.eq(1),
-        $hour_1 = this.$.hours.eq(0),
-        $hour_2 = this.$.hours.eq(1),
-        $min_1  = this.$.minutes.eq(0),
-        $min_2  = this.$.minutes.eq(1),
-        $sec_1  = this.$.seconds.eq(0),
-        $sec_2  = this.$.seconds.eq(1);
+      particle.push({
+        x : width/2,
+        y : height/2,
+        boxW : randomRange(5,20),
+        boxH : randomRange(5,20),
+        size : randomRange(2,8),
 
-        this.countdown_interval = setInterval(function() {
-          var duration = moment.duration(that.target.diff(moment()));
+        spikeran:randomRange(3,5),
 
-          if (duration.asSeconds() > 0) {
-            // Update DOM values
-            // Days
-            that.checkHour(duration.asDays(), $day_1, $day_2);
+        velX :randomRange(-8,8),
+        velY :randomRange(-50,-10),
 
-            // Update DOM values
-            // Hours
-            that.checkHour(duration.hours(), $hour_1, $hour_2);
+        angle :convertToRadians(randomRange(0,360)),
+        color:colors[Math.floor(Math.random() * colors.length)],
+        anglespin:randomRange(-0.2,0.2),
 
-            // Minutes
-            that.checkHour(duration.minutes(), $min_1, $min_2);
+        draw : function(){
 
-            // Seconds
-            that.checkHour(duration.seconds(), $sec_1, $sec_2);
-          } else {
-            that.checkHour(0, $day_1, $day_2);
-            that.checkHour(0, $hour_1, $hour_2);
-            that.checkHour(0, $min_1, $min_2);
-            that.checkHour(0, $sec_1, $sec_2);
-            clearInterval(that.countdown_interval);
-          }
-        }, 1000);
-      },
 
-      animateFigure: function($el, value) {
+          context.save();
+          context.translate(this.x,this.y);
+          context.rotate(this.angle);
+          context.fillStyle=this.color;
+          context.beginPath();
+          // drawStar(0, 0, 5, this.boxW, this.boxH);
+          context.fillRect(this.boxW/2*-1,this.boxH/2*-1,this.boxW,this.boxH);
+          context.fill();
+          context.closePath();
+          context.restore();
+          this.angle += this.anglespin;
+          this.velY*= 0.999;
+          this.velY += 0.3;
 
-        var that         = this,
-        $top         = $el.find('.top'),
-        $bottom      = $el.find('.bottom'),
-        $back_top    = $el.find('.top-back'),
-        $back_bottom = $el.find('.bottom-back');
+          this.x += this.velX;
+          this.y += this.velY;
+          if(this.y < 0){
+            this.velY *= -0.2;
+            this.velX *= 0.9;
+          };
+          if(this.y > height){
+            this.anglespin = 0;
+            this.y = height;
+            this.velY *= -0.2;
+            this.velX *= 0.9;
+          };
+          if(this.x > width ||this.x< 0){
 
-        // Before we begin, change the back value
-        $back_top.find('span').html(value);
+            this.velX *= -0.5;
+          };
 
-        // Also change the back bottom value
-        $back_bottom.find('span').html(value);
 
-        // Then animate
-        TweenMax.to($top, 0.8, {
-          rotationX           : '-180deg',
-          transformPerspective: 300,
-          ease                : Quart.easeOut,
-          onComplete          : function() {
 
-            $top.html(value);
+        },
 
-            $bottom.html(value);
 
-            TweenMax.set($top, { rotationX: 0 });
-          }
-        });
 
-        TweenMax.to($back_top, 0.8, {
-          rotationX           : 0,
-          transformPerspective: 300,
-          ease                : Quart.easeOut,
-          clearProps          : 'all'
-        });
-      },
 
-      checkHour: function(value, $el_1, $el_2) {
+      });
 
-        var val_1       = value.toString().charAt(0),
-        val_2       = value.toString().charAt(1),
-        fig_1_value = $el_1.find('.top').html(),
-        fig_2_value = $el_2.find('.top').html();
+    }
 
-        if(value >= 10) {
 
-          // Animate only if the figure has changed
-          if(fig_1_value !== val_1) this.animateFigure($el_1, val_1);
-          if(fig_2_value !== val_2) this.animateFigure($el_2, val_2);
-        }
-        else {
+    function drawScreen(){
+      context.globalAlpha = 1;
+      for( var i = 0; i < particle.length; i++){
+        particle[i].draw();
 
-          // If we are under 10, replace first figure with 0
-          if(fig_1_value !== '0') this.animateFigure($el_1, 0);
-          if(fig_2_value !== val_1) this.animateFigure($el_2, val_1);
-        }
       }
-    };
+    }
 
-    // Let's go !
-    Countdown.init();
-  });
+    function update(){
+      context.clearRect(0,0,width,height);
+
+      drawScreen();
+
+      requestAnimationFrame(update);
+    }
+
+    function randomRange(min, max){
+      return min + Math.random() * (max - min );
+    }
+
+    function randomInt(min, max){
+      return Math.floor(min + Math.random()* (max - min + 1));
+    }
+
+    function convertToRadians(degree) {
+      return degree*(Math.PI/180);
+    }
+
+    function drawStar(cx, cy, spikes, outerRadius, innerRadius,color) {
+      var rot = Math.PI / 2 * 3;
+      var x = cx;
+      var y = cy;
+      var step = Math.PI / spikes;
+
+      context.strokeSyle = "#000";
+      context.beginPath();
+      context.moveTo(cx, cy - outerRadius)
+      for (i = 0; i < spikes; i++) {
+        x = cx + Math.cos(rot) * outerRadius;
+        y = cy + Math.sin(rot) * outerRadius;
+        context.lineTo(x, y)
+        rot += step
+
+        x = cx + Math.cos(rot) * innerRadius;
+        y = cy + Math.sin(rot) * innerRadius;
+        context.lineTo(x, y)
+        rot += step
+      }
+      context.lineTo(cx, cy - outerRadius)
+      context.closePath();
+      context.fillStyle=color;
+      context.fill();
+
+    }
+
+    return update;
+  }
 
 })(Zepto, window, document);

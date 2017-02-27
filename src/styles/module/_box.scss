@@ -1,81 +1,141 @@
+#confetti-canvas-1, #confetti-canvas-2 {
+  position: absolute;
+  z-index: 1;
+}
+
+#confetti-canvas-1 {
+  z-index: 0;
+}
+
 .container {
-perspective: 500;
-perspective-origin: 50% -150px;
+  perspective: 1500px;
+  perspective-origin: 50% 0%;
+  display: flex;
+  justify-content: center;
 }
+
 .box {
-  width: 100px;
-  height: 100px;
+  width: 400px;
+  height: 400px;
   position: relative;
-  margin: 180px auto;
+  transform: translate3d(0,0,0);
   transform-style: preserve-3d;
+  transition: 250ms transform linear;
+  box-shadow: 0 20px 20px -10px rgba(109,109,22,.15);
+  top: 100px;
+  will-change: transform;
+  animation-fill-mode: both;
 }
-.box:hover {
-    animation: spin 250ms linear;
-    animation-fill-mode: forwards;
+.box.open {
+  animation: spin 250ms linear 250ms;
+  animation-fill-mode: both;
+}
+
+.color-change {
+  margin: 20px auto;
+  animation: glow 1500ms ease-in-out 3;
 }
 .side {
-  width: 100px;
-  height: 100px;
+  width: 400px;
+  height: 400px;
   background: #9EAC25;
   position: absolute;
-  border: 1px solid #6D6D16;
 }
 .side-1 {
-  width: 100px;
-  height: 100px;
+  width: 400px;
+  height: 400px;
   position: absolute;
-  transform: rotateX(90deg) translateZ(50px);
+  transform: rotateX(90deg) translateZ(200px);
   transform-style: preserve-3d;
+  background-color: darken($color-primary, 10%);
 }
 
 .side-2 {
-  transform: translateZ(50px);
+  transform: translateZ(200px);
   line-height: 30px;
   font-size: 14px;
   text-align: center;
-  color: #663300;
+  color: #fff;
+  background-color: $color-primary;
 }
 
 .side-3 {
-  transform: rotateY(90deg) translateZ(50px);
+  transform: rotateY(90deg) translateZ(200px);
 }
 
 .side-4 {
-  transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
+  transform: rotateX(-90deg) rotate(180deg) translateZ(200px);
 }
 
 .side-5 {
-  transform: rotateY(180deg) translateZ(50px);
+  transform: rotateY(180deg) translateZ(200px);
 }
 
 .side-6 {
-  transform: rotateY(-90deg) translateZ(50px);
+  transform: rotateY(-90deg) translateZ(200px);
+  background-color: darken($color-primary, 3%);
 }
 .inner-side {
-  transition: 250ms all linear;
+  transition: 250ms transform ease;
 }
 
 .flap-1, .flap-2 {
-  width: 100px;
-  height: 50px;
+  width: 400px;
+  height: 200px;
+  background: lighten($color-primary, 2%);
+  will-change: transform;
+  transform: translate3d(0,0,0);
+  transform-style: preserve-3d;
 }
 
 .flap-1 {
-  top: 50px;
-  transform-origin: 0px 50px;
+  top: 200px;
+  transform-origin: 0px 200px;
 }
 
 .flap-2 {
-  transform-origin: 100px 0px;
+  transform-origin: 400px 0px;
 }
-.box:hover .flap-1 {
-  transform: rotateX(-120deg);
-}
-
-.box:hover .flap-2 {
-  transform: rotateX(120deg);
+.box.open .flap-1 {
+  animation: openbox-flap1 500ms ease-in-out 600ms;
+  animation-fill-mode: both;
 }
 
+.box.open .flap-2 {
+  animation: openbox-flap2 500ms ease-in-out 600ms;
+  animation-fill-mode: both;
+}
+
+//Richtet die Box aus, bzw. rotiert den Box-Deckel
+@keyframes lineup {
+  //from { transform: rotateX(0) }
+  to {
+    transform: rotateX(90deg);
+    transform-origin: bottom center;
+    top: -90px;
+  }
+}
+//Dreht den Würfel, damit das öffnen der flaps sichtbarer wird
 @keyframes spin {
-  to { transform: rotateY(30deg); }
+  to { transform: rotateY(50deg);}
+}
+//Öffne flap 1
+@keyframes openbox-flap1 {
+  0% { transform: rotateX(0deg); }
+  50% { transform: rotateX(-135deg); }
+  70% { transform: rotateX(-105deg); }
+  100% { transform: rotateX(-120deg); }
+}
+//Öffne flap 2
+@keyframes openbox-flap2 {
+  0% { transform: rotateX(0deg); }
+  50% { transform: rotateX(140deg); }
+  70% { transform: rotateX(100deg); }
+  100% { transform: rotateX(120deg); background-color: lighten($color-primary, 1%);}
+}
+//Change Color to increase affordance
+@keyframes glow {
+  0% { color: #fff; }
+  50% { color: #6D6D16; transform: scale(1.1); }
+  100% { color: #fff; }
 }

@@ -22,3 +22,8 @@ This is not a grid system. Show what it is about on <a href="http://susy.oddbird
     padding: 0;
   }
 }
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
