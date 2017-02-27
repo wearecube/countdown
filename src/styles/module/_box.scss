@@ -1,0 +1,81 @@
+.container {
+perspective: 500;
+perspective-origin: 50% -150px;
+}
+.box {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  margin: 180px auto;
+  transform-style: preserve-3d;
+}
+.box:hover {
+    animation: spin 250ms linear;
+    animation-fill-mode: forwards;
+}
+.side {
+  width: 100px;
+  height: 100px;
+  background: #9EAC25;
+  position: absolute;
+  border: 1px solid #6D6D16;
+}
+.side-1 {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  transform: rotateX(90deg) translateZ(50px);
+  transform-style: preserve-3d;
+}
+
+.side-2 {
+  transform: translateZ(50px);
+  line-height: 30px;
+  font-size: 14px;
+  text-align: center;
+  color: #663300;
+}
+
+.side-3 {
+  transform: rotateY(90deg) translateZ(50px);
+}
+
+.side-4 {
+  transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
+}
+
+.side-5 {
+  transform: rotateY(180deg) translateZ(50px);
+}
+
+.side-6 {
+  transform: rotateY(-90deg) translateZ(50px);
+}
+.inner-side {
+  transition: 250ms all linear;
+}
+
+.flap-1, .flap-2 {
+  width: 100px;
+  height: 50px;
+}
+
+.flap-1 {
+  top: 50px;
+  transform-origin: 0px 50px;
+}
+
+.flap-2 {
+  transform-origin: 100px 0px;
+}
+.box:hover .flap-1 {
+  transform: rotateX(-120deg);
+}
+
+.box:hover .flap-2 {
+  transform: rotateX(120deg);
+}
+
+@keyframes spin {
+  to { transform: rotateY(30deg); }
+}
