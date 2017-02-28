@@ -79,6 +79,10 @@
 .side-6 {
   transform: rotateY(-90deg) translateZ(150px);
   background-color: darken($color-primary, 3%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .inner-side {
   transition: 250ms transform ease;
@@ -109,6 +113,23 @@
 .box.open .flap-2 {
   animation: openbox-flap2 500ms ease-in-out 600ms;
   animation-fill-mode: both;
+}
+.wac-logo-container {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 12px;
+  margin-left: 3px;
+}
+.wac-logo {
+  width: 150px;
+  height: auto;
+  bottom: 0;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  z-index: 999;
 }
 
 //Richtet die Box aus, bzw. rotiert den Box-Deckel
