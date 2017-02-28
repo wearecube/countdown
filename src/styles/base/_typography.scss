@@ -89,13 +89,16 @@ hr {
 
 }
 .birthday-text {
-  font-size: 50px;
+  font-size: 45px;
   font-weight: bold;
   opacity: 0;
-  margin-top: -4em;
+  margin-top: -3em;
+  line-height: 45px;
   margin-bottom: 40px;
   text-align: center;
   word-break: break-word;
+  padding: 0 5px;
+  z-index: 9999999;
   @include susy-breakpoint($break-400px) {
     font-size: 60px;
     margin-top: -3em;
