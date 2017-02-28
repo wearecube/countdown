@@ -21,8 +21,8 @@
 }
 
 .box {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   position: relative;
   transform: translate3d(0,0,0);
   transform-style: preserve-3d;
@@ -32,6 +32,10 @@
   animation: rumble .1s infinite linear;
   will-change: transform;
   animation-fill-mode: both;
+  @include susy-breakpoint($break-400px) {
+    width: 300px;
+    height: 300px;
+  }
 }
 .box.open {
   animation: spin 250ms linear 250ms;
@@ -43,70 +47,107 @@
   animation: glow 1500ms ease-in-out 3;
 }
 .side {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   background: #9EAC25;
   position: absolute;
+  @include susy-breakpoint($break-400px) {
+    width: 300px;
+    height: 300px;
+  }
 }
 .side-1 {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   position: absolute;
-  transform: rotateX(90deg) translateZ(150px);
+  transform: rotateX(90deg) translateZ(100px);
   transform-style: preserve-3d;
+  @include susy-breakpoint($break-400px) {
+    width: 300px;
+    height: 300px;
+    transform: rotateX(90deg) translateZ(150px);
+  }
 }
 
 .side-2 {
-  transform: translateZ(150px);
+  transform: translateZ(100px);
   line-height: 30px;
   font-size: 14px;
   text-align: center;
   color: #fff;
   background-color: $color-primary;
+  @include susy-breakpoint($break-400px) {
+    width: 300px;
+    height: 300px;
+    transform: translateZ(150px);
+  }
 }
 
 .side-3 {
-  transform: rotateY(90deg) translateZ(150px);
+  transform: rotateY(90deg) translateZ(100px);
   background-color: darken($color-primary, 5%);
+  @include susy-breakpoint($break-400px) {
+    transform: rotateY(90deg) translateZ(150px);
+  }
 }
 
 .side-4 {
-  transform: rotateX(-90deg) rotate(180deg) translateZ(150px);
+  transform: rotateX(-90deg) rotate(180deg) translateZ(100px);
+  @include susy-breakpoint($break-400px) {
+    transform: rotateX(-90deg) rotate(180deg) translateZ(150px);
+  }
 }
 
 .side-5 {
-  transform: rotateY(180deg) translateZ(150px);
+  transform: rotateY(180deg) translateZ(100px);
   background-color: $color-primary;
+  @include susy-breakpoint($break-400px) {
+    transform: rotateY(180deg) translateZ(150px);
+  }
 }
 
 .side-6 {
-  transform: rotateY(-90deg) translateZ(150px);
+  transform: rotateY(-90deg) translateZ(100px);
   background-color: darken($color-primary, 3%);
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  @include susy-breakpoint($break-400px) {
+    transform: rotateY(-90deg) translateZ(150px);
+  }
 }
 .inner-side {
   transition: 250ms transform ease;
 }
 
 .flap-1, .flap-2 {
-  width: 300px;
-  height: 150px;
+  width: 200px;
+  height: 100px;
   background: lighten($color-primary, 2%);
   will-change: transform;
   transform: translate3d(0,0,0);
   transform-style: preserve-3d;
+  @include susy-breakpoint($break-400px) {
+    width: 300px;
+    height: 150px;
+  }
 }
 
 .flap-1 {
-  top: 150px;
-  transform-origin: 0px 150px;
+  top: 100px;
+  transform-origin: 0px 100px;
+  @include susy-breakpoint($break-400px) {
+    top: 150px;
+    transform-origin: 0px 150px;
+  }
 }
 
 .flap-2 {
-  transform-origin: 300px 0px;
+  transform-origin: 200px 0px;
+  @include susy-breakpoint($break-400px) {
+    transform-origin: 300px 0px;
+  }
 }
 .box.open .flap-1 {
   animation: openbox-flap1 500ms ease-in-out 600ms;
@@ -122,17 +163,23 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 12px;
   margin-left: 3px;
+  @include susy-breakpoint($break-400px) {
+    margin-top: 12px;
+    margin-left: 3px;
+  }
 }
 .wac-logo {
-  width: 150px;
+  width: 70px;
   height: auto;
   bottom: 0;
   margin: 0 auto;
   left: 0;
   right: 0;
   z-index: 999;
+  @include susy-breakpoint($break-400px) {
+    width: 150px;
+  }
 }
 
 //Richtet die Box aus, bzw. rotiert den Box-Deckel

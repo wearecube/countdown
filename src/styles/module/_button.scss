@@ -101,12 +101,15 @@ Three sizes for the buttons: small, medium (default) and big.
 //}
 .button {
   text-align: center;
+  margin-top: 5px;
+  @include susy-breakpoint($break-400px) {
+  }
 }
 
 .btn {
   border-radius: 3px;
-  padding: 10px 15px;
-  font-size: 22px;
+  padding: 2px 8px;
+  font-size: 16px;
   text-decoration: none;
   color: #fff;
   position: relative;
@@ -114,6 +117,10 @@ Three sizes for the buttons: small, medium (default) and big.
   &:hover {
     background-color: darken(#86921f, 1%);
     color: white;
+  }
+  @include susy-breakpoint($break-400px) {
+    font-size: 22px;
+    padding: 10px 15px;
   }
 }
 .green {

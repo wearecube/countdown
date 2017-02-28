@@ -18,11 +18,14 @@ $lato: 'Lato';
   justify-content: center;
   margin: 0 auto;
   flex-wrap: wrap;
-  margin-top: 15px;
+  margin-top: 5px;
+  @include susy-breakpoint($break-400px) {
+    margin-top: 15px;
+  }
 
   .bloc-time {
     float: left;
-    margin: 10px 20px 20px;
+    margin: 8px 15px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -33,12 +36,13 @@ $lato: 'Lato';
 
   .count-title {
     display: block;
-    margin-bottom: 8px;
-    font: bold 0.94em $lato;
+    margin-bottom: 4px;
+    font: bold 0.7em $lato;
     color: #fff;
     text-transform: uppercase;
     @include susy-breakpoint($break-400px) {
       margin-bottom: 15px;
+      font: bold 0.94em $lato;
     }
   }
   .figure-group {
@@ -48,14 +52,18 @@ $lato: 'Lato';
   .figure {
     position: relative;
     float: left;
-    height: 40px;
-    width: 30px;
+    height: 30px;
+    width: 20px;
     margin-right: 10px;
     background-color: #fff;
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 4px;
     @include box-shadow(0 3px 4px 0 rgba(0, 0, 0, .05),inset 2px 4px 0 0 rgba(255, 255, 255, .08));
-
+    @include susy-breakpoint($break-400px) {
+      height: 40px;
+      width: 30px;
+      border-radius: 8px;
+    }
     &:last-child {
       margin-right: 0;
     }
@@ -65,9 +73,12 @@ $lato: 'Lato';
       left: 0;
       right: 0;
       margin: auto;
-      font: normal 1.5em/40px $lato;
+      font: normal 1.2em/28px $lato;
       font-weight: 700;
       color: #4E4D50;
+      @include susy-breakpoint($break-400px) {
+        font: normal 1.5em/40px $lato;
+      }
     }
 
     .top, .bottom-back {
