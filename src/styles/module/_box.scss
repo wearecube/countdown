@@ -162,12 +162,6 @@
   70% { transform: rotateX(100deg); }
   100% { transform: rotateX(120deg); background-color: lighten($color-primary, 1%);}
 }
-//Change Color to increase affordance
-@keyframes glow {
-  0% { color: #fff; }
-  50% { color: #6D6D16; transform: scale(1.1); }
-  100% { color: #fff; }
-}
 
 // Make box rumble
 @keyframes rumble {

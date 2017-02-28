@@ -111,21 +111,11 @@ Three sizes for the buttons: small, medium (default) and big.
   color: #fff;
   position: relative;
   display: inline-block;
-  &:active {
-    box-shadow: 0px 1px 0px 0px;
-    transform: translate(0px, 5px);
+  &:hover {
+    background-color: darken(#86921f, 1%);
+    color: white;
   }
 }
 .green {
   background-color: #86921f;
-}
-
-h1.box-button {
-  margin: .5em 0;
-  color: blue;
-}
-
-.reset-button {
-  text-align: center;
-  color: blue;
 }
