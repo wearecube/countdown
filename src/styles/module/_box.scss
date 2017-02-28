@@ -27,6 +27,7 @@
   transition: 250ms transform linear;
   box-shadow: 0 20px 20px -10px rgba(109,109,22,.15);
   top: 100px;
+  animation: rumble .1s infinite linear;
   will-change: transform;
   animation-fill-mode: both;
 }
@@ -164,4 +165,13 @@
   0% { color: #fff; }
   50% { color: #6D6D16; transform: scale(1.1); }
   100% { color: #fff; }
+}
+
+// Make box rumble
+@keyframes rumble {
+    0% {transform: rotate(0deg);}
+    25% {transform: translate(1px, 0px) rotate(-1deg);}
+    50% {transform: translate(0px, -1px) rotate(0deg);}
+    75% {transform: translate(-1px, 0px) rotate(1deg);}
+    100% {transform: translate(0px, 1px) rotate(0deg);}
 }
